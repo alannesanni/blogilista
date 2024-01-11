@@ -10,6 +10,11 @@ const logger = require('./utils/logger')
 const loginRouter = require('./controllers/login')
 const middleware = require('./middleware')
 
+if (process.env.NODE_ENV === 'test') {
+    const testingRouter = require('./controllers/testing')
+    app.use('/api/testing', testingRouter)
+  }
+
 
 const http = require('http')
 
